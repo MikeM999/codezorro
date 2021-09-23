@@ -1,0 +1,77 @@
+PY,01,"print(""Hello, World!"")"
+PY,02,"print(""Hello, World!"", end ="" "")"
+PY,03,"hours = 2
+rate  = 12.99
+name  = ""John"""
+PY,04,hours = 3
+PY,05,"if hours == 3:
+  print(""hours is 3."")"
+PY,06,"name = input(""Enter name: "")
+print(""Hello "" + name + ""."")
+
+age = int(input(""Enter age: ""))
+print(""John is "" + str(age)+ ""."")
+
+salary = float(input(""Enter salary: ""))
+print(""John's salary is "" + str(salary)+ ""."")"
+PY,07,"if hours == 3:
+  print(""hours is 3."")"
+PY,08,"if hours == 3:
+  print(""hours is 3."")
+else:
+  print(""hours is not 3."")"
+PY,09,"if hours == 3:
+  print(""hours is 3."")
+elif hours == 5:
+    print(""hours is 5"")
+else:
+  print(""hours is not 3 or 5."")"
+PY,10,(None)
+PY,11,"x = 1
+while x <= 5:
+    print(""x is now"" + str(x))
+    x += 1
+# End of while x <=5"
+PY,12,None
+PY,13,"for x in range (1, 5):
+    print(""x is now "" + str(x))
+# End of for x loop
+# Loop stops when x is 4, not 5"
+PY,14,break
+PY,15,break
+PY,16,continue
+PY,17,"model = []
+cars  = [""Ford"",""Fiat"",""Opel""]
+price = [100.00,95.00,34.00]"
+PY,18,"cars.append(""VW"")"
+PY,19,"#Remove 2nd element in list
+cars.pop(1)"
+PY,20,print(cars[0])
+PY,21,"cars[0] = ""BMW"""
+PY,22,print(len(cars))
+PY,23,"if ""Opel"" in cars:"
+PY,24,print(max(price))
+PY,25,"for x in cars:
+    print(x)"
+PY,26,cars.sort()
+PY,27,"spring = (""February"",""March"",""April"")"
+PY,28,"def screenTitle():
+    print(""Inside screenTitle function"")
+
+"
+PY,29,"screenTitle()
+print(""Back from function."")"
+PY,30,"def displayName(x):
+    print(""Name passed to funciton is "" + x)
+
+displayName(""John"")
+print(""Back from function."")"
+PY,31,"def calcSalary(x, y):
+    z = x * y
+    return z
+
+salary = calcSalary(40, 9.95)
+print(""Salary = "" + str(salary))"
+PY,32,"f = open(""payslip.txt"", ""w"")
+f.write(""This line is written to the text file."")
+f.close()"

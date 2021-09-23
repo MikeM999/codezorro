@@ -1,0 +1,54 @@
+{% extends 'main.html' %}
+
+
+{% block content%}
+
+
+<!-- Import data...
+    <form action='actionUrl' method='GET'>
+    <button type='submit'> Import Data...</button>
+</form>
+-->
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <div class="col-md-3">
+            <h6 class="display-6"><em>Notes...</em></h6>
+            <p><small><em>
+            Choose a programming language and a topic and click "Get Code...".
+            Then simply copy/paste the code from the text area into your editor.<br>
+            </em></small></p>
+            <p><small><em>Where applicable, all code samples are based on a simple payroll system of;<br>
+                grossPay = hoursWorked * rateOfPay.
+            </em></small></p>
+            <form method="GET"> 
+                <small><em>
+                    Help us to keep this site free of cookies and requiring users to register and login by donating what you can.
+                    Every little helps...                 
+                </em></small>                                        
+                <a href="{% url 'donate' %}" class="btn btn-outline-primary btn-sm">Donate...</a>
+            </form>
+        </div>
+        
+        <div class="col-md-9">
+            <div class="form-group m-2">
+                <form method="post">                    
+                        {% csrf_token %}
+                        {{ form }}
+                        <input type="submit" class="btn btn-outline-primary btn-sm" value="Get Code...">                        
+                </form>
+            </div>
+            <textarea id="displayText" rows="12" cols="114" style="font-family: 'Courier New', Courier, monospace; font-size: 14px;" readonly>{{ text }}</textarea>
+            <div class="m-2">
+                <input id="clear" type="submit" class="btn btn-outline-primary btn-sm" value="Clear text area" onclick="clearTextarea()">      
+                <a href="mailto:michaelmaycock@gmail.com" class="btn btn-outline-primary btn-sm" target="_blank" data-toggle="tooltip" data-placement="top" title="If your email does not automatically open when you click this button, email us at michaelmaycock@gmail.com">Found a bug? Email us...</a>                  
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function clearTextarea() {
+        document.getElementById("displayText").value = "";        
+    }
+</script>
+{% endblock content %}
