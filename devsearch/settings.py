@@ -13,9 +13,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5cofkt0xmtl@7o-*jjp2!glu406b$#spoq1yz%q100hhk%=2)='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'codezorro.herokuapp.com/', 'codezorro.com']
+ALLOWED_HOSTS = ['127.0.0.1',
+                 'fierce-fjord-99928.herokuapp.com', 'codezorro.com', 'www.codezorro.com']
 
 
 # Application definition
@@ -125,6 +126,3 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-if os.getcwd() == '/app':
-    DEBUG = False
