@@ -15,8 +15,8 @@ SECRET_KEY = 'django-insecure-5cofkt0xmtl@7o-*jjp2!glu406b$#spoq1yz%q100hhk%=2)=
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1',
-                 'fierce-fjord-99928.herokuapp.com', 'codezorro.com', 'www.codezorro.com']
+ALLOWED_HOSTS = ['fierce-fjord-99928.herokuapp.com',
+                 'codezorro.com', 'www.codezorro.com']
 
 
 # Application definition
