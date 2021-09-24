@@ -71,10 +71,10 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'devsearch',
-        'USER': 'postgres',
-        'PASSWORD': 'chris999',
-        'HOST': 'evening-basin-16537.herokuapp.com',
+        'NAME': 'd76jd7ldc0qahh',
+        'USER': 'jhgnuepwakixti',
+        'PASSWORD': 'c9454b7e8cacb79482f57c5e0619d9f82b16017519307ffe9511727610ed5b1b',
+        'HOST': 'ec2-34-233-187-36.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
