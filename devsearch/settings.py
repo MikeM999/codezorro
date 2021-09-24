@@ -74,7 +74,7 @@ DATABASES = {
         'NAME': 'devsearch',
         'USER': 'postgres',
         'PASSWORD': 'chris999',
-        'HOST': 'git.heroku.com/fierce-fjord-99928',
+        'HOST': 'git.heroku.com/fierce-fjord-99928.git',
         'PORT': '5432',
     }
 }
