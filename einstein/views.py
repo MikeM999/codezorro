@@ -15,24 +15,27 @@ def get_code(request):
             language = form.cleaned_data['language']
             topic = form.cleaned_data['topic']
 
-            try:
-                querySet = Language.objects.filter(
-                    name=language).values('code')
-                languageCode = querySet[0]['code']
-                querySet = Topic.objects.filter(
-                    name=topic).values('code')
-                topicCode = querySet[0]['code']
+            if str(language) == "Julia":
+                text = "Sorry, but we are still working on the Julia language.\nCome back to us soon on that!!"
+            else:
+                try:
+                    querySet = Language.objects.filter(
+                        name=language).values('code')
+                    languageCode = querySet[0]['code']
+                    querySet = Topic.objects.filter(
+                        name=topic).values('code')
+                    topicCode = querySet[0]['code']
 
-                narrativeCode = languageCode + topicCode
-                querySet = Narrative.objects.filter(
-                    code=narrativeCode).values('text')
-                text = querySet[0]['text']
-            # End of try block
-            except:
-                text = 'The selected topic "' + str(topic) + \
-                    '" is not relevant to the ' + \
-                    str(language) + " programming language."
-            # End of except block
+                    narrativeCode = languageCode + topicCode
+                    querySet = Narrative.objects.filter(
+                        code=narrativeCode).values('text')
+                    text = querySet[0]['text']
+                # End of try block
+                except:
+                    text = 'The selected topic "' + str(topic) + \
+                        '" is not relevant to the ' + \
+                        str(language) + " programming language."
+                # End of except block
         # End of if form.is_valid()
     # End of if request.method == "POST"
 

@@ -13,10 +13,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-5cofkt0xmtl@7o-*jjp2!glu406b$#spoq1yz%q100hhk%=2)='
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['evening-basin-16537.herokuapp.com',
-                 'codezorro.com', 'www.codezorro.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1',
+                 'codezorro.herokuapp.com', 'codezorro.com']
 
 
 # Application definition
@@ -28,12 +28,13 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'einstein.apps.EinsteinConfig'
+    'einstein.apps.EinsteinConfig',
+    'storages',
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    # 'whitenoise.middleware.security.WhiteNoiseMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -41,6 +42,8 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 ROOT_URLCONF = 'devsearch.urls'
 
@@ -66,25 +69,39 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 
 
 # Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
+# https: // docs.djangoproject.com/en/3.2/ref/settings/  # databases
 
+# Live aws database
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd76jd7ldc0qahh',
-        'USER': 'jhgnuepwakixti',
-        'PASSWORD': 'c9454b7e8cacb79482f57c5e0619d9f82b16017519307ffe9511727610ed5b1b',
-        'HOST': 'ec2-34-233-187-36.compute-1.amazonaws.com',
+        'NAME': 'codezorroDB',
+        'HOST': 'database-1.c3rsigsqgqpo.eu-west-1.rds.amazonaws.com',
         'PORT': '5432',
+        'USER': 'mikem',
+        'PASSWORD': 'chris999',
+
     }
 }
 
+# Local postgres database
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql',
+#         'NAME': 'codezorro',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#         'USER': 'postgres',
+#         'PASSWORD': 'chris999',
 
+#     }
+# }
+
+# Local sqlite3 database
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.sqlite3',
 #         'NAME': BASE_DIR / 'db.sqlite3',
-
 #     }
 # }
 
@@ -135,7 +152,17 @@ STATICFILES_DIRS = [
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
+# Comment
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+AWS_QUERYSTRING_AUTH = False
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = 'AKIA5S4BSEVKCXN2HVDG'
+AWS_SECRET_ACCESS_KEY = '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'
+AWS_STORAGE_BUCKET_NAME = 'codezorro-bucket'
+
+if os.getcwd() == '/app':
+    DEBUG = False

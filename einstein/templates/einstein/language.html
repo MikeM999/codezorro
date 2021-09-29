@@ -37,10 +37,10 @@
                         <input type="submit" class="btn btn-outline-primary btn-sm" value="Get Code...">                        
                 </form>
             </div>
-            <textarea id="displayText" rows="12" cols="114" style="font-family: 'Courier New', Courier, monospace; font-size: 14px;" readonly>{{ text }}</textarea>
+            <textarea id="displayText" rows="15" cols="114" style="font-family: 'Courier New', Courier, monospace; font-size: 14px;" readonly>{{ text }}</textarea>
             <div class="m-2">
                 <input id="clear" type="submit" class="btn btn-outline-primary btn-sm" value="Clear text area" onclick="clearTextarea()">      
-                <a href="mailto:michaelmaycock@gmail.com" class="btn btn-outline-primary btn-sm" target="_blank" data-toggle="tooltip" data-placement="top" title="If your email does not automatically open when you click this button, email us at michaelmaycock@gmail.com">Found a bug? Email us...</a>                  
+                <a href="{% url 'donate' %}" class="btn btn-outline-primary btn-sm">Found a bug? email us...</a>
             </div>
         </div>
     </div>
