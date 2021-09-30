@@ -75,36 +75,13 @@ WSGI_APPLICATION = 'devsearch.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'codezorroDB',
-        'HOST': 'database-1.c3rsigsqgqpo.eu-west-1.rds.amazonaws.com',
-        'PORT': '5432',
-        'USER': 'mikem',
-        'PASSWORD': 'chris999',
-
+        'NAME': os.environ.get('DB_NAME'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASS'),
     }
 }
-
-# Local postgres database
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': 'codezorro',
-#         'HOST': 'localhost',
-#         'PORT': '5432',
-#         'USER': 'postgres',
-#         'PASSWORD': 'chris999',
-
-#     }
-# }
-
-# Local sqlite3 database
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -158,11 +135,11 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-AWS_QUERYSTRING_AUTH = False
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = 'AKIA5S4BSEVKCXN2HVDG'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'codezorro-bucket'
+AWS_QUERYSTRING_AUTH = os.environ.get('AWS_QUERYSTRING_AUTH')
+DEFAULT_FILE_STORAGE = os.environ.get('DEFAULT_FILE_STORAGE')
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
 if os.getcwd() == '/app':
     DEBUG = False
