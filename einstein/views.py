@@ -58,3 +58,7 @@ def importData(request):
 
 def donate(request):
     return render(request, 'einstein/donate.html')
+
+
+def contact(request):
+    return render(request, 'einstein/contact.html')
