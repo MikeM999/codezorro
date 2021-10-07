@@ -62,3 +62,10 @@ def donate(request):
 
 def contact(request):
     return render(request, 'einstein/contact.html')
+<<<<<<< HEAD
+=======
+
+
+def about(request):
+    return render(request, 'einstein/about.html')
+>>>>>>> 2d134f0 (07102021-1)

@@ -1,5 +1,6 @@
 {% load static %}
 
+<<<<<<< HEAD
 <div class="container m-4 pb-1 d-flex justify-content-center">
     <div class="row">
         <div class="col-md-1">
@@ -10,5 +11,39 @@
         
        
     </div>
+=======
+<header class="header data-uk-sticky">
+  <div class="container container--narrow">
+    <a href="{% url 'get_code' %}" class="header__logo">
+      <img src="{% static 'images/zorroIcon.png' %} " alt="DevSearch Logo" />
+    </a>
+    <nav class="header__nav">
+      <input type="checkbox" id="responsive-menu" />
+      <label for="responsive-menu" class="toggle-menu">
+        <span>Menu</span>
+        <div class="toggle-menu__lines"></div>
+      </label>
+      <ul class="header__menu">
+        <li class="header__menuItem"><a href="{% url 'get_code' %}">Home</a></li>
+        <li class="header__menuItem"><a href="{% url 'about' %}">About</a></li>
+        <li class="header__menuItem"><a href="{% url 'contact' %}">Contact</a></li>
+        <li class="header__menuItem"><a href="{% url 'donate' %}">Donate</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+<div class="container d-none d-md-block d-lg-block">
+  <div class="row">
+    <div class="col-md-2">
+      <img src="{% static 'images/zorrosign.png' %} " alt="DevSearch Logo" />
+    </div>
+    <div class="col-md-10">
+      <br>
+      <br>
+      <br>
+      <p class="display-6"><em>Fighting the evils of complicated code structures wherever found!!</em></p>      
+    </div>
+  </div>
+>>>>>>> 2d134f0 (07102021-1)
 </div>
 

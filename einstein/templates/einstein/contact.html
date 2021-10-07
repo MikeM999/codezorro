@@ -3,6 +3,7 @@
 
 {% block content%}
 
+<<<<<<< HEAD
 <!doctype html>
 <html lang="en">
   <head>
@@ -100,3 +101,36 @@
 {% endblock content %}
 
 {% csrf_token %}
+=======
+    <!-- Main Section -->
+    <main class="formPage my-xl">
+        <div class="content-box">
+            <div class="formWrapper">
+                <form class="form" method="POST" enctype="multipart/form-data"> 
+                    {% csrf_token %}
+                    <!-- Input:Text -->
+                    <div class="form__field">
+                        <label for="formInput#text">Name:</label>
+                        <input class="input input--text" id="formInput#text" type="text" name="text"
+                            placeholder="Enter your name..." />
+                    </div>
+
+                    <!-- Input:Text -->
+                    <div class="form__field">
+                        <label for="formInput#text">Email: </label>
+                        <input class="input input--text" id="formInput#text" type="text" name="text"
+                            placeholder="Enter your email..." />
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="formInput#text">Message: </label>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    </div>
+                    <input class="btn btn--sub btn--lg  my-md" type="submit" value="Submit" />                    
+                </form>
+            </div>
+        </div>
+    </main>
+
+{% endblock content %}
+>>>>>>> 2d134f0 (07102021-1)

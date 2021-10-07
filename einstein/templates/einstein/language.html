@@ -9,10 +9,19 @@
     <button type='submit'> Import Data...</button>
 </form>
 -->
+<<<<<<< HEAD
 <div class="container d-flex justify-content-center">
     <div class="row">
         <div class="col-md-3">
             <h6 class="display-6"><em>Notes...</em></h6>
+=======
+<div class=" d-flex justify-content-center">
+    <div class="row">
+        <div class="col-md-1 d-none d-md-block d-lg-block">
+        </div>
+        <div class="col-md-3 d-none d-md-block d-lg-block">
+            <p class="display-6"><em>Notes...</em></p>
+>>>>>>> 2d134f0 (07102021-1)
             <p><small><em>
             Choose a programming language and a topic and click "Get Code...".
             Then simply copy/paste the code from the text area into your editor.<br>
@@ -23,11 +32,18 @@
                 rateOfPay = 9.99<br>
                 grossPay = hoursWorked * rateOfPay
             </em></small></p>
+<<<<<<< HEAD
+=======
+            <p><small><em></em>Help us keep this site free of ads by donating what you can.<br>
+                Every little helps...
+            </em></small></p>
+>>>>>>> 2d134f0 (07102021-1)
             <form method="GET"> 
                 <small><em>
                     Help us keep this site free of ads by donating what you can.<br>
                     Every little helps...                 
                 </em></small>                                        
+<<<<<<< HEAD
                 <a href="{% url 'donate' %}" class="btn btn-outline-primary btn-sm">Donate...</a>
             </form>
         </div>
@@ -44,6 +60,25 @@
             <div class="m-2">
                 <input id="clear" type="submit" class="btn btn-outline-primary btn-sm" value="Clear text area" onclick="clearTextarea()">      
                 <a href="{% url 'contact' %}" class="btn btn-outline-primary btn-sm">Found a bug? email us...</a>
+=======
+                <a href="{% url 'donate' %}" class="btn btn--main--outline">Donate...</a>
+            </form>
+        </div>
+        
+        <div class="col-md-8">
+            <div class="form-group m-2">
+                <form method="post">                    
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <input type="submit" class="btn btn--main--outline" value="Get Code..."> 
+                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="13" style="font-family: 'Courier New', Courier, monospace; font-size: 14px;" readonly>{{ text }}</textarea>                       
+                </form>
+            </div>
+            
+            
+            <div class="m-2">
+                <input id="clear" type="submit" class="btn btn--main--outline" value="Clear text area" onclick="clearTextarea()">                      
+>>>>>>> 2d134f0 (07102021-1)
             </div>
         </div>
     </div>
