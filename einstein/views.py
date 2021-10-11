@@ -3,7 +3,10 @@ from django.http import HttpResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from .forms import LanguageForm
-import csv
+from .forms import ContactForm
+from django.core.mail import send_mail, BadHeaderError
+from django.conf import settings
+import pdb
 
 
 def get_code(request):
@@ -14,28 +17,29 @@ def get_code(request):
         if form.is_valid():
             language = form.cleaned_data['language']
             topic = form.cleaned_data['topic']
-
-            if str(language) == "Julia":
-                text = "Sorry, but we are still working on the Julia language.\nCome back to us soon on that!!"
-            else:
-                try:
-                    querySet = Language.objects.filter(
-                        name=language).values('code')
-                    languageCode = querySet[0]['code']
-                    querySet = Topic.objects.filter(
-                        name=topic).values('code')
-                    topicCode = querySet[0]['code']
-
+            try:
+                querySet = Language.objects.filter(
+                    name=language).values('code')
+                languageCode = querySet[0]['code']
+                querySet = Topic.objects.filter(
+                    name=topic).values('code')
+                topicCode = querySet[0]['code']
+                if topicCode == "24":
+                    querySet = Narrative.objects.filter(
+                        code="SQL").values('text')
+                    text = querySet[0]['text']
+                else:
                     narrativeCode = languageCode + topicCode
+
                     querySet = Narrative.objects.filter(
                         code=narrativeCode).values('text')
                     text = querySet[0]['text']
-                # End of try block
-                except:
-                    text = 'The selected topic "' + str(topic) + \
-                        '" is not relevant to the ' + \
-                        str(language) + " programming language."
-                # End of except block
+            # End of try block
+            except:
+                text = 'The selected topic "' + str(topic) + \
+                    '" is not relevant to the ' + \
+                    str(language) + " programming language."
+            # End of except block
         # End of if form.is_valid()
     # End of if request.method == "POST"
 
@@ -60,9 +64,9 @@ def donate(request):
     return render(request, 'einstein/donate.html')
 
 
-def contact(request):
-    return render(request, 'einstein/contact.html')
-
-
 def about(request):
     return render(request, 'einstein/about.html')
+
+
+def contact(request):
+    return render(request, 'einstein/contact.html')

@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-5cofkt0xmtl@7o-*jjp2!glu406b$#spoq1yz%q100hhk%=2)=
 # SECURITY WARNING: don't run with debug turned on in production!!
 DEBUG = True
 
-ALLOWED_HOSTS = ['codezorro.herokuapp.com', 'codezorro.com']
+ALLOWED_HOSTS = ['localhost', 'codezorro.herokuapp.com', 'codezorro.com']
 
 
 # Application definition
@@ -113,7 +113,6 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
-
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
