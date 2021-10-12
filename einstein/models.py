@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.fields import UUIDField
 
 
 class Language(models.Model):
@@ -23,3 +24,10 @@ class Narrative(models.Model):
 
     def __str__(self):
         return self.text[0:40]
+
+
+class Xmail(models.Model):
+    name = models.CharField(max_length=60, null=False)
+    email = models.EmailField(max_length=95, null=False)
+    message = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)

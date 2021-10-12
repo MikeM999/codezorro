@@ -3,7 +3,7 @@
 <header class="header data-uk-sticky">
   <div class="container container--narrow">
     <a href="{% url 'get_code' %}" class="header__logo">
-      <img src="{% static 'images/zorroIcon.png' %} " alt="DevSearch Logo" />
+      <img src="{% static 'images/zorroIcon.png' %} " style="border-radius:20%" alt="DevSearch Logo" />
     </a>
     <nav class="header__nav">
       <input type="checkbox" id="responsive-menu" />
@@ -14,8 +14,8 @@
       <ul class="header__menu">
         <li class="header__menuItem"><a href="{% url 'get_code' %}">Home</a></li>
         <li class="header__menuItem"><a href="{% url 'about' %}">About</a></li>        
-        <li class="header__menuItem"><a href="{% url 'donate' %}">Donate</a></li>
-        <li class="header__menuItem"><a href="{% url 'contact' %}">Contact</a></li>
+        <li class="header__menuItem"><a href="{% url 'createEmail' %}">Contact Us</a></li>          
+        <li class="header__menuItem"><a href="{% url 'donate' %}">Donate</a></li> 
       </ul>
     </nav>
   </div>
@@ -23,13 +23,20 @@
 <div class="container d-none d-md-block d-lg-block">
   <div class="row">
     <div class="col-md-2">
-      <img src="{% static 'images/zorrosign.png' %} " alt="DevSearch Logo" />
+      <img src="{% static 'images/zorrosign02.png' %} " alt="DevSearch Logo" />
     </div>
     <div class="col-md-10">
       <br>
       <p class="display-5"><em>CodeZorro.com</em></p> 
       <br>
       <p class="display-6"><em>Fighting the evils of complicated code structures wherever found!!</em></p>      
+    </div>
+  </div>
+</div>
+<div class="d-md-none">
+  <div class="row text-center">
+    <div class="col-md-2">
+      <img src="{% static 'images/zorrosign02.png' %} " class="rounded" alt="DevSearch Logo" style="width:100px;height:100px;"/>
     </div>
   </div>
 </div>

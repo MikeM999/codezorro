@@ -1,12 +1,9 @@
+from django.views import View
 from einstein.models import Language, Topic, Narrative
+from einstein.models import Xmail
 from django.http import HttpResponse
-from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
-from .forms import LanguageForm
-from .forms import ContactForm
-from django.core.mail import send_mail, BadHeaderError
-from django.conf import settings
-import pdb
+from .forms import LanguageForm, XmailForm
 
 
 def get_code(request):
@@ -47,17 +44,17 @@ def get_code(request):
     return render(request, 'einstein/language.html', context)
 
 
-def importData(request):
-    with open('templates/narrativeData.csv') as csv_file:
-        csv_reader = csv.reader(csv_file, delimiter=',')
-        for row in csv_reader:
-            vCode = row[0]+row[1]
-            _, created = Narrative.objects.get_or_create(
-                code=vCode,
-                text=row[2]
-            )
-            print(row[0], row[1], row[2])
-        return render(request, 'einstein/language.html')
+def createEmail(request):
+    form = XmailForm()
+    if request.method == 'POST':
+        form = XmailForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+
+            return redirect('thankyou')
+
+    context = {'form': form}
+    return render(request, "einstein/contact.html", context)
 
 
 def donate(request):
@@ -68,5 +65,5 @@ def about(request):
     return render(request, 'einstein/about.html')
 
 
-def contact(request):
-    return render(request, 'einstein/contact.html')
+def thankyou(request):
+    return render(request, 'einstein/thankyou.html')

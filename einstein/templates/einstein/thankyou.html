@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+
+{% block content%}
+
+<div class=" d-flex justify-content-center">        
+    <div class="row text-center">
+      <form action="{% url 'get_code' %}">
+        <br>
+        <p><em>Thank you for getting in touch!!!</em></p>
+        <p><em>We will address your email as soon as we can and get back to you thereafter is needed.</em></p>
+        <input type="submit" class="btn btn--main--outline" value="Home" />
+      </form>                
+    </div>
+</div>
+
+{% endblock content %}

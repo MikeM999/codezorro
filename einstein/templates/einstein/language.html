@@ -2,14 +2,6 @@
 {% load static %}
 {% block content%}
 
-<div class="d-md-none">
-    <div class="row text-center">
-      <div class="col-md-2">
-        <img src="{% static 'images/zorrosign.png' %} " class="rounded" alt="DevSearch Logo" style="width:100px;height:100px;"/>
-      </div>
-    </div>
-  </div>
-
 <div class=" container-fluid d-flex">
     <div class="row text-left">    
         <div class="col-md-2 d-none d-md-block d-lg-block">
@@ -18,7 +10,7 @@
         <div class="col-md-10 d-none d-md-block d-lg-block">
             <p><em>
             Choose a programming language and a topic and click "Get Code...". Click "Copy" to copy code to the clipboard or "Clear" to clear the text area. Help us keep this site free for all by donating what you can. Every little helps...
-            </em></p>
+            </em></p>                       
         </div>        
     </div>
 </div>
@@ -31,12 +23,15 @@
                 <br>
                 <form method="post">                    
                         {% csrf_token %}
-                        {{ form.as_p }}
+                        {{ form.language.label }}
+                        {{ form.language }}
+                        {{ form.topic.label }}
+                        {{ form.topic }}
                         <input type="submit" class="btn btn--main--outline" value="Get Code...">                         
                 </form>
             </div>
             <div class="form-group m-2 mb-1">            
-                <textarea class="form-control" id="displayText" rows="10" columns="200" style="font-family: 'Courier New', Courier, monospace; font-size: 14px;" readonly>{{ text }}</textarea>
+                <textarea class="form-control" id="displayText" rows="12" columns="200" style="font-family: 'Courier New', Courier, monospace; font-size: 14px;" readonly>{{ text }}</textarea>
             </div>  
             <div class="m-2">
                 <input id="clear" type="submit" class="btn btn--main--outline" value="Clear text area" onclick="clearTextarea()">                      
@@ -50,6 +45,7 @@
     function clearTextarea() {
         document.getElementById("displayText").value = "";        
     }
+
     function copyText() {
         document.getElementById("displayText").select();
         document.execCommand('copy');
@@ -57,4 +53,5 @@
         document.getElementById("clear").focus();
     }
 </script>
+
 {% endblock content %}

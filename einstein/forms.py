@@ -1,6 +1,6 @@
-
 from django import forms
-from .models import Language, Topic
+from django.forms.models import ModelForm
+from .models import Language, Topic, Xmail
 
 
 class LanguageForm(forms.Form):
@@ -10,8 +10,10 @@ class LanguageForm(forms.Form):
         queryset=Topic.objects.all().order_by('name'), label="Select a Topic")
 
 
-class ContactForm(forms.Form):
-    first_name = forms.CharField(max_length=50)
-    last_name = forms.CharField(max_length=50)
-    email_address = forms.EmailField(max_length=150)
-    message = forms.CharField(widget=forms.Textarea, max_length=2000)
+class XmailForm(ModelForm):
+    class Meta:
+        model = Xmail
+        fields = '__all__'
+        widgets = {
+            'message': forms.Textarea(attrs={'rows': 5, 'cols': 80}),
+        }
