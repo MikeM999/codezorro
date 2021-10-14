@@ -68,7 +68,7 @@ def donate(request):
     session = stripe.checkout.Session.create(
         payment_method_types=['card'],
         line_items=[{
-            'price': 'price_1JkFyLEmU9UV2Dyj5wIISqcT',
+            'price': 'price_1JjOP9EmU9UV2DyjtnmxEWl8',
             'quantity': 1,
         }],
         mode='payment',
