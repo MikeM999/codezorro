@@ -15,5 +15,5 @@ class XmailForm(ModelForm):
         model = Xmail
         fields = '__all__'
         widgets = {
-            'message': forms.Textarea(attrs={'rows': 5, 'cols': 5}),
+            'message': forms.Textarea(attrs={'rows': 5, 'cols': 30}),
         }
