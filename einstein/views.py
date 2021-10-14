@@ -1,9 +1,15 @@
 from django.views import View
 from einstein.models import Language, Topic, Narrative
 from einstein.models import Xmail
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
+
 from .forms import LanguageForm, XmailForm
+from django.conf import settings
+from django.urls import reverse
+
+
+import stripe
 
 
 def get_code(request):
@@ -58,7 +64,23 @@ def createEmail(request):
 
 
 def donate(request):
-    return render(request, 'einstein/donate.html')
+    stripe.api_key = settings.STRIPE_SECRET_KEY
+    session = stripe.checkout.Session.create(
+        payment_method_types=['card'],
+        line_items=[{
+            'price': 'price_1JkFyLEmU9UV2Dyj5wIISqcT',
+            'quantity': 1,
+        }],
+        mode='payment',
+        success_url=request.build_absolute_uri(
+            reverse('donatethankyou')) + '?session_id={CHECKOUT_SESSION_ID}',
+        cancel_url=request.build_absolute_uri(reverse('get_code')),
+    )
+    context = {
+        'session_id': session.id,
+        'stripe_public_key': settings.STRIPE_PUBLIC_KEY
+    }
+    return render(request, 'einstein/donate.html', context)
 
 
 def about(request):
@@ -67,3 +89,7 @@ def about(request):
 
 def thankyou(request):
     return render(request, 'einstein/thankyou.html')
+
+
+def donatethankyou(request):
+    return render(request, 'einstein/donatethankyou.html')

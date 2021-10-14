@@ -3,32 +3,28 @@
 {% block content%}
 
 <div class=" container-fluid d-flex">
-    <div class="row text-left">    
-        <div class="col-md-2 d-none d-md-block d-lg-block">
-
-        </div>    
-        <div class="col-md-10 d-none d-md-block d-lg-block">
-            <p><em>
-            Choose a programming language and a topic and click "Get Code...". Click "Copy" to copy code to the clipboard or "Clear" to clear the text area. Help us keep this site free for all by donating what you can. Every little helps...
-            </em></p>                       
-        </div>        
-    </div>
+    <div class="col-md-3 d-none d-md-block d-lg-block">
+    </div>    
+    <div class="col-md-9 d-none d-md-block d-lg-block">
+        <p><em>
+        Choose a programming language and a topic and click "Get Code...". <br>Click "Copy Code" to copy the code to the clipboard or "Clear" to clear the text area. <br>Help keep this site free for all by donating €5 through the <em><strong>Donate</strong></em> button above.<br>
+        </em></p>                       
+    </div>        
 </div>
 <div class="container-fluid">
     <div class="row mx-auto">
-        
-        <div class="d-md-none">
+        <div class="col-md-2">
+        </div>
+        <div class="col-md-10">
             <div class="form-group m-2 mb-1 mt-1" style="float">
-                <p><em>Select a language and a topic and click "Get Code..."</em></p>
                 <form method="post">                    
-                        {% csrf_token %}
-                        <p>Language:</p>
-                        {{ form.language }}
-                        <p>Topic:</p>                        
-                        {{ form.topic }}
-                        <div class="m-2">
-                            <input type="submit" class="btn btn--main--outline" value="Get Code...">                         
-                        </div>
+                    {% csrf_token %}
+                    {{ form.language.label }}
+                    {{ form.language }}                                       
+                    {{ form.topic.label }}
+                    {{ form.topic }}                    
+                    <br>
+                    <input type="submit" class="btn btn--main--outline" value="Get Code...">                                             
                 </form>
             </div>
             <div class="form-group m-2 mb-1">            
@@ -41,29 +37,6 @@
         </div>
     </div>
 </div>
-<div class="container d-none d-md-block d-lg-block">
-    <div class="row">
-        <div class="form-group m-2 mb-1" style="float">
-            <br>
-            <form method="post">                    
-                    {% csrf_token %}
-                    {{ form.language.label }}
-                    {{ form.language }}
-                    {{ form.topic.label }}
-                    {{ form.topic }}                    
-                    <input type="submit" class="btn btn--main--outline" value="Get Code...">                         
-            </form>
-        </div>
-        <div class="form-group m-2 mb-1">            
-            <textarea class="form-control" id="displayText" rows="12" columns="200" style="font-family: 'Courier New', Courier, monospace; font-size: 14px;" readonly>{{ text }}</textarea>
-        </div>  
-        <div class="m-2">
-            <input id="clear" type="submit" class="btn btn--main--outline" value="Clear text area" onclick="clearTextarea()">                      
-            <input id="copy" type="submit" class="btn btn--main--outline" value="Copy Code" onclick="copyText()">                      
-        </div>
-    </div>
-  </div>
-
 <script>
     function clearTextarea() {
         document.getElementById("displayText").value = "";        
