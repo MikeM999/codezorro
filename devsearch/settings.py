@@ -8,7 +8,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['localhost', 'codezorro.herokuapp.com', 'codezorro.com']
 

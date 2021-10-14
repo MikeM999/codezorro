@@ -15,11 +15,12 @@
             <form action="" method="POST" id="contactForm" name="contactForm">
               {% csrf_token %} 
               <p>Enter your name:</p>{{ form.name }}
-              <br><br>
+              <br>
               <p>Enter your email address:</p>{{ form.email }}
-              <br><br>
-              <p>Enter your message:</p>{{ form.message }}
-              <br>              
+              <br>
+              <div class="form-group m-2 mb-1">            
+                <p>Enter your message:</p>{{ form.message }}  
+              </div>                        
               <input type="submit" class="btn btn--main--outline" value="Submit">    
             </form>              
         </div>
