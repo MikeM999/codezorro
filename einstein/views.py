@@ -40,7 +40,7 @@ def get_code(request):
             # End of try block
             except:
                 text = 'The selected topic "' + str(topic) + \
-                    '" is not relevant to the ' + \
+                    '" is not supported by the ' + \
                     str(language) + " programming language."
             # End of except block
         # End of if form.is_valid()
