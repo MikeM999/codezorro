@@ -27,7 +27,7 @@ def get_code(request):
                 querySet = Topic.objects.filter(
                     name=topic).values('code')
                 topicCode = querySet[0]['code']
-                if topicCode == "24":
+                if topicCode == "24" and languageCode != "JS":
                     querySet = Narrative.objects.filter(
                         code="SQL").values('text')
                     text = querySet[0]['text']

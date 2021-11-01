@@ -5,9 +5,9 @@ from .models import Language, Topic, Xmail
 
 class LanguageForm(forms.Form):
     language = forms.ModelChoiceField(
-        queryset=Language.objects.all().order_by('name'), label="Pick a Language")
+        queryset=Language.objects.all().order_by('name'), label="Pick a Language:")
     topic = forms.ModelChoiceField(
-        queryset=Topic.objects.all().order_by('name'), label="Select a Topic")
+        queryset=Topic.objects.all().order_by('name'), label="Select a Topic:")
 
 
 class XmailForm(ModelForm):

@@ -20,11 +20,10 @@
                 <form method="post">                    
                     {% csrf_token %}
                     {{ form.language.label }}
-                    <br>
-                    {{ form.language }}
-                    <br>                                   
+
+                    {{ form.language }}                                                   
                     {{ form.topic.label }}
-                    <br>
+
                     {{ form.topic }}
                     <br>
                     <div class="m-2 mb-1">
