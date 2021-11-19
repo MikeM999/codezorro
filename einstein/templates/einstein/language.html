@@ -3,19 +3,24 @@
 {% block content%}
 
 <div class=" container-fluid d-flex">
-    <div class="col-md-3 d-none d-md-block d-lg-block">
+    
+    <div class="col-md-2 d-none d-md-block d-lg-block">
+        
     </div>    
-    <div class="col-md-9 d-none d-md-block d-lg-block">
+    <div class="col-md-10 d-none d-md-block d-lg-block">
         <p><em>
-        Choose a programming language and a topic and click "Get Code...". <br>Click "Copy Code" to copy the code to the clipboard.<br>Help keep this site free of ads, cookies, and registration by donating €5 through the <em><strong>Donate</strong></em> button above.<br>
-        </em></p>                       
+        <li>Choose a programming language and a topic and click "Get Code...".</li>
+        <li>Click "Copy Code" to copy the code to the clipboard.</li>
+        <li>Help keep this site free of ads, cookies, and registration by donating €5 through the <em><strong>Donate</strong></em> button above.</li>
+        </em></p>   
+        <br>                    
     </div>        
 </div>
 <div class="container-fluid">
     <div class="row mx-auto">
         <div class="col-md-2">
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
             <div class="form-group m-2 mb-1 mt-1" style="float">
                 <form method="post">                    
                     {% csrf_token %}
@@ -24,16 +29,13 @@
                     {{ form.language }}                                                   
                     {{ form.topic.label }}
 
-                    {{ form.topic }}
-                    <br>
-                    <div class="m-2 mb-1">
-                        <input type="submit" class="btn btn--main--outline" value="Get Code...">                                                                                         
-                        <input id="copy" type="submit" class="btn btn--main--outline" value="Copy Code" onclick="copyText()">                                                                 
-                    </div>
+                    {{ form.topic }}                    
+                    <input type="submit" class="btn btn--main--outline" value="Get Code...">                                                                                         
+                    <input id="copy" type="submit" class="btn btn--main--outline" value="Copy Code" onclick="copyText()">                                                                                     
                 </form>
             </div>
             <div class="form-group m-2 mb-1">            
-                <textarea class="form-control" id="displayText" rows="12" style="font-family: 'Courier New', Courier, monospace; font-size: 14px;" readonly>{{ text }}</textarea>                
+                <textarea class="form-control" id="displayText" rows="13" style="font-family:courier; font-size: 14px" readonly>{{ text }}</textarea>
             </div>   
             <div class="m-2">
                 <input id="clear" type="submit" class="btn btn--main--outline" value="Clear Text Area" onclick="clearTextarea()">

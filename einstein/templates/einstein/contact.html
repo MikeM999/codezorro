@@ -1,33 +1,23 @@
 {% extends 'main.html' %}
 
 {% block content%}
-
-  
     
-  <div class="container">
-    <div class="row justify-content-center">
-      <div class="col-md-10">          
-        <div class="row">
-          <div class="col-md-3">
-          </div>
-          <div class="col-md-9">
-            
-            <form action="" method="POST" id="contactForm" name="contactForm">
-              {% csrf_token %} 
-              <p>Enter your name:</p>{{ form.name }}
-              <br>
-              <p>Enter your email address:</p>{{ form.email }}
-              <br>
-              <div class="form-group m-2 mb-1">            
-                <p>Enter your message:</p>{{ form.message }}  
-              </div>                        
-              <input type="submit" class="btn btn--main--outline" value="Submit">    
-            </form>              
-        </div>
-      </div>
-    </div>
+<div class="container-fluid row">                       
+  <div class="col-md-2">
   </div>
-</div>
-  
+  <div class="col-md-10">      
+    <form action="" method="POST" id="contactForm" name="contactForm">
+      {% csrf_token %} 
+      <p>Enter your name:</p>{{ form.name }}
+      <br>
+      <p>Enter your email address:</p>{{ form.email }}
+      <br>
+      <div class="form-group m-2 mb-1">            
+        <p>Enter your message:</p>{{ form.message }}  
+      </div>                        
+      <input type="submit" class="btn btn--main--outline" value="Submit">    
+    </form>              
+</div>      
+</div>  
     
 {% endblock content %}
