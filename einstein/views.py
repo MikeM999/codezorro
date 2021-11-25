@@ -91,5 +91,9 @@ def thankyou(request):
     return render(request, 'einstein/thankyou.html')
 
 
+def jsnotes(request):
+    return render(request, 'einstein/jsnotes.html')
+
+
 def donatethankyou(request):
     return render(request, 'einstein/donatethankyou.html')

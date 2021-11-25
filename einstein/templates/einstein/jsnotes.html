@@ -1,0 +1,125 @@
+{% extends 'main.html' %}
+
+{% block content%}
+<div class="container">          
+    <br>
+    <h5> Some quick notes on common JavaScript concepts...</h5>
+    <br>
+    <table class="fixed" style="margin-left: 2.5em;">    
+        <col width="100px"/>
+        <col width="250px"/>
+        <col width="700px"/>
+
+        <tr>
+            <td><strong>Math.round():</strong></td>
+            <td><i>var x = Math.round(0.9);</i></td>
+            <td>This code rounds x to 1.</td>
+        </tr> 
+        <tr>
+            <td><strong>Math.pow():</strong></td>
+            <td><i>var x = Math.pow(2,3);</i></td>
+            <td>This code cubes 2, giving x the value of 8.</td>
+        </tr> 
+        <tr>
+            <td></td>
+            <td><i>var x = Math.pow(2,2);</i></td>
+            <td>This code squares 2, giving x the value of 4.</td>
+        </tr> 
+        <tr>
+            <td><strong>Math.sqrt():</strong></td>
+            <td><i>var x = Math.sqrt(81);</i></td>
+            <td>This code returns the square root of 81, giving x the value of 9.</td>
+        </tr> 
+        <tr>
+            <td><strong>Math.abs():</strong></td>
+            <td><i>var x = Math.abs(-3);</i></td>
+            <td>This code returns the absolute value of -3, giving x the value of 3.</td>
+        </tr> 
+        <tr>
+            <td><strong>Math.round():</strong></td>
+            <td><i>var x = Math.round(1.4);</i></td>
+            <td>This code rounds 1.4 to the nearest whole integer, giving x the value of 1.</td>
+        </tr> 
+        <tr>
+            <td></td>
+            <td><i>var x = Math.round(3.7);</i></td>
+            <td>This code rounds 3.7 to the nearest whole integer, giving x the value of 4.</td>
+        </tr> 
+        <tr>
+            <td></td>
+            <td><i>var x = Math.round(-5.4);</i></td>
+            <td>This code rounds -5.4 to the nearest whole integer, giving x the value of -5.</td>
+        </tr> 
+        <tr>
+            <td><strong>Math.ceil():</strong></td>
+            <td><i>var x = Math.ceil(1.4);</i></td>
+            <td>This code rounds 1.4 up to the nearest whole integer, giving x the value of 2.</td>
+        </tr> 
+        <tr>
+            <td></td>
+            <td><i>var x = Math.ceil(-3.7);</i></td>
+            <td>This code rounds -3.7 <i>up</i> to the nearest whole integer, giving x the value of -3.</td>
+        </tr> 
+        <tr>
+            <td><strong>Math.floor():</strong></td>
+            <td><i>var x = Math.floor(4.2);</i></td>
+            <td>This code rounds 4.2 down to the nearest whole integer, giving x the value of 4.</td>
+        </tr> 
+        <tr>
+            <td></td>
+            <td><i>var x = Math.floor(-5.7);</i></td>
+            <td>This code rounds -5.7 <i>down</i> to the nearest whole integer, giving x the value of -6.</td>
+        </tr> 
+        <tr>
+            <td><strong>Math.max():</strong></td>
+            <td><i>var x = Math.max(4, 7);</i></td>
+            <td>This code returns the highest value to x, giving x the value of 7.</td>
+        </tr> 
+        <tr>
+            <td><strong>Math.min():</strong></td>
+            <td><i>var x = Math.min(4, 7);</i></td>
+            <td>This code returns the lowest value to x, giving x the value of 4.</td>
+        </tr> 
+        <tr>
+            <td><strong>Math.random():</strong></td>
+            <td><i>var x = Math.random();</i></td>
+            <td>This code generates a random number between 0 and 1 and assigns it to x.</td>
+        </tr> 
+
+        <tr>
+            <td><strong>Number.isInteger():</strong></td>
+            <td><i>var x = Number.isInteger(12);</i></td>
+            <td>This code returns a value of <i>true</i> to x because the supplied value (12) is an integer.</td>
+        </tr> 
+        <tr>
+            <td></td>
+            <td><i>var x = Number.isInteger("12");</i></td>
+            <td>This code returns a value of <i>false</i> to x because the supplied value ("12") is <i>not</i> an integer.</td>
+        </tr> 
+        <tr>
+            <td></td>
+            <td><i>var x = Number.isInteger(12.2);</i></td>
+            <td>This code returns a value of <i>false</i> to x because the supplied value (12.2) is <i>not</i> an integer.</td>
+        </tr> 
+        <tr>
+            <td><strong>Number.isNaN():</strong></td>
+            <td><i>var x = Number.isNaN(NaN);</i></td>
+            <td>The Number.isNaN() method only returns true if the value being evaluated has a value of "NaN".</td>
+        </tr> 
+        <tr>
+            <td></td>
+            <td></td>
+            <td>For example, if the result of a calculation is NaN, then Number.isNaN() will return true.</td>
+        </tr> 
+        <tr>
+            <td></td>
+            <td></td>
+            <td>As such, the Number.isNaN() method should not be used to check is a variable has a number value or not.</td>
+        </tr> 
+        
+    </table>                                   
+    <br>
+</div>
+{% endblock content %}
+
+
